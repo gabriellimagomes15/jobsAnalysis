@@ -435,23 +435,6 @@ d3.csv("data/dadosFinal.csv", function(d) {
     var dateUpdate = group(data, ['dateColect'])
     var divUpdate = d3.selectAll('.card-footer span').text(dateUpdate[1].value)
     
-    //MONTAR BOX/DIV COM INFORMAÇÕES NUMÉRICAS
-    /*boxNumber.call(div, {docs: data, title: "Total of Posts Jobs"})
-    console.log(data.length)
-       div.transition()
-            .duration(1500)
-            .on("start", function repeat() {
-              d3.active(this)
-                .tween("text", function() {
-                    var that = d3.select(this),
-                        i = d3.interpolateNumber(that.text().replace(/,/g, ""), data.length);
-                    return function(t) { that.text(format(i(t))); };
-                })
-                .transition()
-                .delay(2000)
-            });
- */
-
 
     /******** GRAFICO DE LINHA ****************************/
     var line  = initVar.call(null, {id: '#linechart', titleDiv: "", class: '', width: '1000', height:'250'})
@@ -468,7 +451,6 @@ d3.csv("data/dadosFinal.csv", function(d) {
       return y.value - x.value;
     })
 
-    //console.log('csv = ', groupDate)
 
     lineChart.call(line.g, {data:groupDate, margins: line.margins})
 
@@ -539,10 +521,6 @@ d3.csv("data/dadosFinal.csv", function(d) {
     groupLang = groupLang.filter(function(x) {return x.value != "" })
 
     pieChar.call(pieEdu.g, {data: groupLang, margins: pieEdu})
-
-
-
-    //*-******************/
 
     var barCity = initVar.call(null, {id: '#treemap', titleDiv: "", class: 'treemap', width: '800', height:'400'})    
 
